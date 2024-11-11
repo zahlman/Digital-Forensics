@@ -20,7 +20,7 @@ def printable_ascii(data: str) ->str:
     temp_str = ""
     for num in range(0, len(data), 2):  #2 nibbles are inseperable as taught by professor Brian in class
         hex  = data[num:num+2]
-        if eval("0x" + hex) in range(0x20, 0x7F):
+        if int(hex, 16) in range(0x20, 0x7F):
             temp_str += bytes.fromhex(hex).decode("utf-8")
         else:
             temp_str += "."   # print a period if not printable 
